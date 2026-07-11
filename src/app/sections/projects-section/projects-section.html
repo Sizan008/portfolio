@@ -1,0 +1,24 @@
+<section class="bg-white px-4 py-20 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-7xl">
+    <app-section-title
+      eyebrow="Projects"
+      title="Featured work"
+      description="Some selected projects showing Angular frontend, backend API, responsive UI, and project architecture skills."
+    />
+
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+      @for (project of projects; track project.id) {
+        <app-project-card [project]="project" />
+      }
+    </div>
+
+    <div class="mt-10 text-center">
+      <a
+        routerLink="/projects"
+        class="inline-flex rounded-full bg-blue-600 px-7 py-3 text-sm font-black text-white transition hover:bg-blue-700"
+      >
+        View All Projects
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,73 @@
+<header class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-md">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+    <a
+      routerLink="/"
+      class="flex items-center gap-3 text-lg font-black text-slate-900"
+      (click)="closeMenu()"
+    >
+      <span class="logo-mark">S</span>
+      <span>Sizan</span>
+    </a>
+
+    <div class="hidden items-center gap-8 md:flex">
+      @for (item of navItems; track item.path) {
+        <a
+          [routerLink]="item.path"
+          routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+          class="text-sm font-semibold text-slate-600 transition hover:text-blue-600"
+        >
+          {{ item.label }}
+        </a>
+      }
+    </div>
+
+    <a
+      href="/resume/1531-Fahim Shahryer Sizan_CV.pdf"
+      target="_blank"
+      class="hidden rounded-full bg-blue-600 px-5 py-2 text-sm font-bold text-white transition hover:bg-blue-700 md:inline-flex"
+    >
+      Resume
+    </a>
+
+    <button
+      type="button"
+      class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 md:hidden"
+      (click)="toggleMenu()"
+      aria-label="Toggle navigation menu"
+    >
+      @if (isMenuOpen()) {
+        ✕
+      } @else {
+        ☰
+      }
+    </button>
+  </nav>
+
+  @if (isMenuOpen()) {
+    <div class="border-t border-slate-200 bg-white px-4 py-4 md:hidden">
+      <div class="flex flex-col gap-4">
+        @for (item of navItems; track item.path) {
+          <a
+            [routerLink]="item.path"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+            class="text-base font-semibold text-slate-700"
+            (click)="closeMenu()"
+          >
+            {{ item.label }}
+          </a>
+        }
+
+        <a
+          href="/resume/Sizan_CV.pdf"
+          target="_blank"
+          class="rounded-full bg-blue-600 px-5 py-3 text-center text-sm font-bold text-white"
+          (click)="closeMenu()"
+        >
+          Download Resume
+        </a>
+      </div>
+    </div>
+  }
+</header>

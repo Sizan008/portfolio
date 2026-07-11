@@ -1,0 +1,107 @@
+<section class="bg-slate-50 px-4 py-20 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-5xl">
+    @if (project; as selectedProject) {
+      <a
+        routerLink="/projects"
+        class="inline-flex rounded-full border border-slate-300 px-5 py-2 text-sm font-bold text-slate-700 transition hover:border-blue-600 hover:text-blue-600"
+      >
+        ← Back to Projects
+      </a>
+
+      <div class="mt-8 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm">
+        @if (selectedImageUrl()) {
+          <div class="flex max-h-[460px] items-center justify-center overflow-hidden bg-slate-100 p-4">
+            <img
+              [src]="selectedImageUrl()"
+              [alt]="selectedProject.title"
+              class="max-h-[430px] w-full object-contain"
+            />
+          </div>
+        }
+
+        @if (projectImages.length > 1) {
+          <div class="border-b border-slate-200 bg-white p-4 sm:p-5">
+            <p class="mb-3 text-sm font-bold text-slate-500">
+              Project Screenshots
+            </p>
+
+            <div class="flex gap-3 overflow-x-auto pb-2">
+              @for (imageUrl of projectImages; track imageUrl) {
+                <button
+                  type="button"
+                  class="thumbnail-btn h-20 w-28 shrink-0 overflow-hidden rounded-xl border border-slate-200 bg-slate-100 p-1 transition hover:border-blue-600"
+                  [class.ring-2]="selectedImageUrl() === imageUrl"
+                  [class.ring-blue-600]="selectedImageUrl() === imageUrl"
+                  (click)="selectImage(imageUrl)"
+                >
+                  <img
+                    [src]="imageUrl"
+                    [alt]="selectedProject.title + ' screenshot'"
+                    class="h-full w-full rounded-lg object-cover"
+                  />
+                </button>
+              }
+            </div>
+          </div>
+        }
+
+        <div class="p-6 sm:p-8 lg:p-10">
+          <h1 class="text-3xl font-black text-slate-950 sm:text-5xl">
+            {{ selectedProject.title }}
+          </h1>
+
+          <p class="mt-6 text-base leading-8 text-slate-600 sm:text-lg">
+            {{ selectedProject.description }}
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-2">
+            @for (technology of selectedProject.technologies; track technology) {
+              <span class="rounded-full bg-blue-50 px-4 py-2 text-sm font-bold text-blue-700">
+                {{ technology }}
+              </span>
+            }
+          </div>
+
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a
+              [href]="selectedProject.githubUrl"
+              target="_blank"
+              rel="noopener"
+              class="rounded-full border border-slate-300 px-6 py-3 text-sm font-black text-slate-700 transition hover:border-blue-600 hover:text-blue-600"
+            >
+              GitHub
+            </a>
+
+            @if (selectedProject.liveUrl) {
+              <a
+                [href]="selectedProject.liveUrl"
+                target="_blank"
+                rel="noopener"
+                class="rounded-full bg-blue-600 px-6 py-3 text-sm font-black text-white transition hover:bg-blue-700"
+              >
+                Live Demo
+              </a>
+            }
+          </div>
+        </div>
+      </div>
+    } @else {
+      <div class="rounded-[2rem] bg-white p-10 text-center shadow-sm">
+        <h1 class="text-3xl font-black text-slate-950">
+          Project not found
+        </h1>
+
+        <p class="mt-4 text-slate-600">
+          The project you are looking for does not exist.
+        </p>
+
+        <a
+          routerLink="/projects"
+          class="mt-8 inline-flex rounded-full bg-blue-600 px-6 py-3 text-sm font-black text-white transition hover:bg-blue-700"
+        >
+          Back to Projects
+        </a>
+      </div>
+    }
+  </div>
+</section>

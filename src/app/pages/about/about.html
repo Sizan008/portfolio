@@ -1,0 +1,77 @@
+<section class="bg-slate-50 px-4 py-20 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-7xl">
+    <app-section-title
+      eyebrow="About Me"
+      title="Frontend developer with a focus on Angular"
+      description="I work with Angular, TypeScript, SCSS, Tailwind CSS, and REST APIs to build responsive and maintainable web applications."
+    />
+
+   <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-[420px_minmax(0,1fr)] lg:gap-12">
+  <div class="mx-auto w-full max-w-[420px] overflow-hidden rounded-[2rem] bg-white p-4 shadow-xl shadow-slate-200 lg:mx-0">
+    <img
+      [src]="profile.profileImageUrl"
+      [alt]="profile.fullName"
+      class="max-h-[420px] w-full rounded-[1.5rem] object-contain"
+    />
+  </div>
+
+  <div>
+    <h3 class="text-2xl font-black text-slate-950 sm:text-3xl">
+      {{ profile.fullName }}
+    </h3>
+
+    <p class="mt-2 text-lg font-bold text-blue-600">
+      {{ profile.title }}
+    </p>
+
+    <p class="mt-5 text-base leading-8 text-slate-600 sm:text-lg">
+      {{ profile.summary }}
+    </p>
+
+    <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div class="rounded-2xl bg-white p-5">
+        <p class="text-sm font-bold text-slate-500">Location</p>
+        <p class="mt-1 font-black text-slate-950">
+          {{ profile.location }}
+        </p>
+      </div>
+
+      <div class="rounded-2xl bg-white p-5">
+        <p class="text-sm font-bold text-slate-500">Email</p>
+        <p class="mt-1 break-all font-black text-slate-950">
+          {{ profile.email }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="mt-16">
+      <h3 class="mb-6 text-2xl font-black text-slate-950">
+        Experience
+      </h3>
+
+      <div class="grid grid-cols-1 gap-5">
+        @for (experience of experiences; track experience.id) {
+          <article class="rounded-3xl bg-white p-6 shadow-sm">
+            <p class="text-sm font-bold text-blue-600">
+              {{ experience.duration }}
+            </p>
+
+            <h4 class="mt-2 text-xl font-black text-slate-950">
+              {{ experience.title }}
+            </h4>
+
+            <p class="mt-1 font-bold text-slate-600">
+              {{ experience.organization }}
+            </p>
+
+            <p class="mt-4 leading-7 text-slate-600">
+              {{ experience.description }}
+            </p>
+          </article>
+        }
+      </div>
+    </div>
+  </div>
+</section>

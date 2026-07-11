@@ -1,0 +1,65 @@
+<section class="bg-white px-4 py-20 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-5xl">
+    <app-section-title
+      eyebrow="Contact"
+      title="Get in touch"
+      description="Have an opportunity, project, or collaboration idea? You can contact me through email or social links."
+    />
+
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+      <div class="rounded-3xl bg-slate-50 p-8">
+        <h3 class="text-2xl font-black text-slate-950">
+          Contact Information
+        </h3>
+
+        <div class="mt-6 space-y-5">
+          <div>
+            <p class="text-sm font-bold text-slate-500">Email</p>
+
+            <a
+              [href]="'mailto:' + profile.email"
+              class="mt-1 block break-all text-lg font-black text-blue-600"
+            >
+              {{ profile.email }}
+            </a>
+          </div>
+
+          <div>
+            <p class="text-sm font-bold text-slate-500">Phone</p>
+
+            <p class="mt-1 text-lg font-black text-slate-950">
+              {{ profile.phone }}
+            </p>
+          </div>
+
+          <div>
+            <p class="text-sm font-bold text-slate-500">Location</p>
+
+            <p class="mt-1 text-lg font-black text-slate-950">
+              {{ profile.location }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-3xl bg-slate-950 p-8 text-white">
+        <h3 class="text-2xl font-black">
+          Social Links
+        </h3>
+
+        <div class="mt-6 flex flex-col gap-4">
+          @for (link of socialLinks; track link.id) {
+            <a
+              [href]="link.url"
+              target="_blank"
+              rel="noopener"
+              class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-bold transition hover:bg-white/10"
+            >
+              {{ link.label }}
+            </a>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

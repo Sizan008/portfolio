@@ -1,0 +1,15 @@
+<section class="bg-slate-50 px-4 py-20 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-7xl">
+    <app-section-title
+      eyebrow="Skills"
+      title="Technologies I work with"
+      description="My current focus is Angular frontend development with clean architecture, reusable UI, API integration, and responsive design."
+    />
+
+    <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+      @for (skill of skills; track skill.id) {
+        <app-skill-card [skill]="skill" />
+      }
+    </div>
+  </div>
+</section>
