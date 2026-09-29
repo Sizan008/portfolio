@@ -7,7 +7,7 @@
     />
 
     <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
-      <div class="rounded-3xl bg-slate-50 p-8">
+      <div class="rounded-3xl bg-slate-50 p-8 shadow-sm" data-aos="fade-right">
         <h3 class="text-2xl font-black text-slate-950">
           Contact Information
         </h3>
@@ -18,7 +18,7 @@
 
             <a
               [href]="'mailto:' + profile.email"
-              class="mt-1 block break-all text-lg font-black text-blue-600"
+              class="mt-1 block break-all text-lg font-black text-blue-600 transition hover:text-blue-700"
             >
               {{ profile.email }}
             </a>
@@ -42,18 +42,19 @@
         </div>
       </div>
 
-      <div class="rounded-3xl bg-slate-950 p-8 text-white">
+      <div class="rounded-3xl bg-slate-950 p-8 text-white shadow-xl" data-aos="fade-left" data-aos-delay="100">
         <h3 class="text-2xl font-black">
           Social Links
         </h3>
 
         <div class="mt-6 flex flex-col gap-4">
-          @for (link of socialLinks; track link.id) {
+          @for (link of socialLinks; track link.id; let i = $index) {
             <a
               [href]="link.url"
               target="_blank"
               rel="noopener"
-              class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-bold transition hover:bg-white/10"
+              [attr.data-aos-delay]="i * 60"
+              class="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-bold transition hover:translate-x-1 hover:bg-white/10"
             >
               {{ link.label }}
             </a>

@@ -1,0 +1,16 @@
+:host {
+  display: block;
+}
+
+.education-timeline-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.education-timeline-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(37, 99, 235, 0.32);
+  box-shadow: 0 22px 45px rgba(15, 23, 42, 0.1);
+}

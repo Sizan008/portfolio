@@ -1,4 +1,7 @@
-<article class="project-card flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white">
+<article
+  class="project-card flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white"
+  data-aos="fade-up"
+>
   @if (project().imageUrl) {
     <div class="h-[220px] overflow-hidden bg-slate-100">
       <img
@@ -27,14 +30,27 @@
     </div>
 
     <div class="mt-auto flex flex-wrap gap-3 pt-6">
-      <a
-        [href]="project().githubUrl"
-        target="_blank"
-        rel="noopener"
-        class="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-700 transition hover:border-blue-600 hover:text-blue-600"
-      >
-        GitHub
-      </a>
+      @if (project().githubUrl) {
+        <a
+          [href]="project().githubUrl"
+          target="_blank"
+          rel="noopener"
+          class="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-700 transition hover:border-blue-600 hover:text-blue-600"
+        >
+          GitHub
+        </a>
+      }
+
+      @if (project().apkUrl) {
+        <a
+          [href]="project().apkUrl"
+          target="_blank"
+          rel="noopener"
+          class="rounded-full bg-emerald-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-emerald-700"
+        >
+          APK
+        </a>
+      }
 
       @if (project().liveUrl) {
         <a
@@ -44,6 +60,17 @@
           class="rounded-full bg-blue-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-blue-700"
         >
           Live Demo
+        </a>
+      }
+
+      @if (project().resourceUrl) {
+        <a
+          [href]="project().resourceUrl"
+          target="_blank"
+          rel="noopener"
+          class="rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-bold text-blue-700 transition hover:border-blue-600"
+        >
+          {{ project().resourceLabel || 'Project Link' }}
         </a>
       }
 

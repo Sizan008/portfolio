@@ -14,6 +14,12 @@ export const routes: Routes = [
     title: 'About | Fahim Shahryer Sizan',
   },
   {
+    path: 'education',
+    loadComponent: () =>
+      import('./pages/education/education').then((m) => m.EducationPage),
+    title: 'Education | Fahim Shahryer Sizan',
+  },
+  {
     path: 'projects',
     loadComponent: () =>
       import('./pages/projects/projects').then((m) => m.Projects),

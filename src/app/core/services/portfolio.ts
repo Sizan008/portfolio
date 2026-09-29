@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import {
+  EDUCATION_DATA,
   EXPERIENCE_DATA,
   PROFILE_DATA,
   PROJECTS_DATA,
   SKILLS_DATA,
   SOCIAL_LINKS_DATA,
 } from '../constants/portfolio-data.constant';
+import { Education } from '../models/education.model';
 import { Experience } from '../models/experience.model';
 import { Profile } from '../models/profile.model';
 import { Project } from '../models/project.model';
@@ -18,6 +20,10 @@ import { SocialLink } from '../models/social-link.model';
 export class Portfolio {
   getProfile(): Profile {
     return PROFILE_DATA;
+  }
+
+  getEducation(): readonly Education[] {
+    return EDUCATION_DATA;
   }
 
   getSkills(): readonly Skill[] {

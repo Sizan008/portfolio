@@ -3,12 +3,13 @@
     @if (project; as selectedProject) {
       <a
         routerLink="/projects"
-        class="inline-flex rounded-full border border-slate-300 px-5 py-2 text-sm font-bold text-slate-700 transition hover:border-blue-600 hover:text-blue-600"
+        data-aos="fade-right"
+        class="inline-flex rounded-full border border-slate-300 px-5 py-2 text-sm font-bold text-slate-700 transition hover:-translate-y-0.5 hover:border-blue-600 hover:text-blue-600"
       >
         ← Back to Projects
       </a>
 
-      <div class="mt-8 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm">
+      <div class="mt-8 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm" data-aos="fade-up">
         @if (selectedImageUrl()) {
           <div class="flex max-h-[460px] items-center justify-center overflow-hidden bg-slate-100 p-4">
             <img
@@ -63,14 +64,27 @@
           </div>
 
           <div class="mt-10 flex flex-wrap gap-4">
-            <a
-              [href]="selectedProject.githubUrl"
-              target="_blank"
-              rel="noopener"
-              class="rounded-full border border-slate-300 px-6 py-3 text-sm font-black text-slate-700 transition hover:border-blue-600 hover:text-blue-600"
-            >
-              GitHub
-            </a>
+            @if (selectedProject.githubUrl) {
+              <a
+                [href]="selectedProject.githubUrl"
+                target="_blank"
+                rel="noopener"
+                class="rounded-full border border-slate-300 px-6 py-3 text-sm font-black text-slate-700 transition hover:border-blue-600 hover:text-blue-600"
+              >
+                GitHub
+              </a>
+            }
+
+            @if (selectedProject.apkUrl) {
+              <a
+                [href]="selectedProject.apkUrl"
+                target="_blank"
+                rel="noopener"
+                class="rounded-full bg-emerald-600 px-6 py-3 text-sm font-black text-white transition hover:bg-emerald-700"
+              >
+                Download APK
+              </a>
+            }
 
             @if (selectedProject.liveUrl) {
               <a
@@ -82,11 +96,22 @@
                 Live Demo
               </a>
             }
+
+            @if (selectedProject.resourceUrl) {
+              <a
+                [href]="selectedProject.resourceUrl"
+                target="_blank"
+                rel="noopener"
+                class="rounded-full border border-blue-200 bg-blue-50 px-6 py-3 text-sm font-black text-blue-700 transition hover:border-blue-600"
+              >
+                {{ selectedProject.resourceLabel || 'Project Link' }}
+              </a>
+            }
           </div>
         </div>
       </div>
     } @else {
-      <div class="rounded-[2rem] bg-white p-10 text-center shadow-sm">
+      <div class="rounded-[2rem] bg-white p-10 text-center shadow-sm" data-aos="zoom-in-up">
         <h1 class="text-3xl font-black text-slate-950">
           Project not found
         </h1>

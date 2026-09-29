@@ -18,6 +18,7 @@ export class Navbar {
   readonly navItems: readonly NavItem[] = [
     { label: 'Home', path: '/' },
     { label: 'About', path: '/about' },
+    { label: 'Education', path: '/education' },
     { label: 'Projects', path: '/projects' },
     { label: 'Contact', path: '/contact' },
   ];

@@ -1,0 +1,27 @@
+:host {
+  display: block;
+}
+
+.education-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.education-card::after {
+  position: absolute;
+  right: -50px;
+  bottom: -70px;
+  width: 150px;
+  height: 150px;
+  content: '';
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.06);
+}
+
+.education-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(37, 99, 235, 0.35);
+  box-shadow: 0 22px 45px rgba(15, 23, 42, 0.1);
+}

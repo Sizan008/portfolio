@@ -1,6 +1,6 @@
 <section class="hero-bg min-h-[calc(100vh-73px)] px-4 py-16 sm:px-6 lg:px-8">
   <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-2">
-    <div class="text-center lg:text-left">
+    <div class="text-center lg:text-left" data-aos="fade-right">
       <p class="text-sm font-bold uppercase tracking-[0.3em] text-blue-600">
         Hello, I am
       </p>
@@ -20,7 +20,7 @@
       <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
         <a
           routerLink="/projects"
-          class="rounded-full bg-blue-600 px-7 py-3 text-center text-sm font-black text-white transition hover:bg-blue-700"
+          class="rounded-full bg-blue-600 px-7 py-3 text-center text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-blue-700"
         >
           View Projects
         </a>
@@ -28,7 +28,7 @@
         <a
           [href]="profile.resumeUrl"
           target="_blank"
-          class="rounded-full border border-slate-300 bg-white px-7 py-3 text-center text-sm font-black text-slate-800 transition hover:border-blue-600 hover:text-blue-600"
+          class="rounded-full border border-slate-300 bg-white px-7 py-3 text-center text-sm font-black text-slate-800 transition hover:-translate-y-0.5 hover:border-blue-600 hover:text-blue-600"
         >
           Download Resume
         </a>
@@ -40,7 +40,7 @@
             [href]="link.url"
             target="_blank"
             rel="noopener"
-            class="rounded-full bg-slate-100 px-4 py-2 text-sm font-bold text-slate-700 transition hover:bg-blue-50 hover:text-blue-600"
+            class="rounded-full bg-slate-100 px-4 py-2 text-sm font-bold text-slate-700 transition hover:-translate-y-0.5 hover:bg-blue-50 hover:text-blue-600"
           >
             {{ link.label }}
           </a>
@@ -48,13 +48,13 @@
       </div>
     </div>
 
-    <div class="flex justify-center lg:justify-end">
+    <div class="flex justify-center lg:justify-end" data-aos="zoom-in-left" data-aos-delay="120">
       <div class="profile-frame">
         <img
-  [src]="profile.profileImageUrl"
-  [alt]="profile.fullName"
-  class="h-full w-full object-contain"
-/>
+          [src]="profile.profileImageUrl"
+          [alt]="profile.fullName"
+          class="h-full w-full object-contain"
+        />
       </div>
     </div>
   </div>

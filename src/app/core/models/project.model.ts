@@ -5,8 +5,11 @@ export interface Project {
   readonly shortDescription: string;
   readonly description: string;
   readonly technologies: readonly string[];
-  readonly githubUrl: string;
+  readonly githubUrl?: string;
   readonly liveUrl?: string;
+  readonly apkUrl?: string;
+  readonly resourceUrl?: string;
+  readonly resourceLabel?: string;
   readonly imageUrl?: string;
   readonly galleryImages?: readonly string[];
   readonly featured: boolean;
